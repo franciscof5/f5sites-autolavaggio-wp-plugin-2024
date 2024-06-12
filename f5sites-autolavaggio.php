@@ -1,4 +1,3 @@
-
 <?php
 /*
 Plugin Name: F5 Sites | Auto Lavaggio
@@ -12,7 +11,7 @@ Tags: mu-plugins */
 // booking
 
 // Custom post type function
-function create_posttype_booking() {
+function create_posttype() {
     register_post_type( 'booking',
     // CPT Options
         array(
@@ -26,8 +25,38 @@ function create_posttype_booking() {
             'show_in_rest' => true,
         )
     );
+    //
+    register_post_type( 'provider',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Providers' ),
+                'singular_name' => __( 'Provider' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'provider'),
+            'show_in_rest' => true,
+        )
+    );
+    //
+    // register_post_type( 'booking',
+    // // CPT Options
+    //     array(
+    //         'labels' => array(
+    //             'name' => __( 'Bookings' ),
+    //             'singular_name' => __( 'Booking' )
+    //         ),
+    //         'public' => true,
+    //         'has_archive' => true,
+    //         'rewrite' => array('slug' => 'booking'),
+    //         'show_in_rest' => true,
+    //     )
+    // );
 }
-add_action( 'init', 'create_posttype_booking' );
+add_action( 'init', 'create_posttype' );
+
+
 
 function f5_gio_tick_provider() { 
     $message = 'Not a provider';
