@@ -40,6 +40,19 @@ function create_posttype() {
             'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'custom-fields' ),
         )
     );
+    register_post_type( 'vehicle',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Vehicle' ),
+                'singular_name' => __( 'Vehicle' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'vehicle'),
+            'show_in_rest' => true,
+        )
+    );
     //
     // register_post_type( 'booking',
     // // CPT Options
