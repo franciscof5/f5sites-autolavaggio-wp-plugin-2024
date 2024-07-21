@@ -37,6 +37,7 @@ function create_posttype() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'provider'),
             'show_in_rest' => true,
+            'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'custom-fields' ),
         )
     );
     //
